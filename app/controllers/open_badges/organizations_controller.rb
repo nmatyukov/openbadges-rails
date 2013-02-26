@@ -8,7 +8,7 @@ module OpenBadges
       @organization = Organization.first
 
       if @organization.nil?
-        @organization = Organization.create(:url => "", :name => "", :image => "", :email => "", :description => "")
+        @organization = Organization.create
       end
 
       respond_to do |format|
@@ -22,7 +22,7 @@ module OpenBadges
       @organization = Organization.first
 
       if @organization.nil?
-        @organization = Organization.create(:url => "", :name => "", :image => "", :email => "", :description => "")
+        @organization = Organization.create
       end
 
   logger.debug(params[:organization])

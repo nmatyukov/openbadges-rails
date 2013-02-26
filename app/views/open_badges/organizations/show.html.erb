@@ -1,11 +1,11 @@
 <form method="post">
-  <legend>Issuer Details</legend>
+  <legend>Issuer Organization Details</legend>
   <div>
     <label for="name">Name</label>
     <input type="text"
            id="name"
            name="name"
-           placeholder="Organization, Inc."
+           placeholder="Example Inc."
            maxlength="128"
            value="<%= @organization.name %>"
            required>
@@ -24,10 +24,7 @@
            placeholder="http://example.org"
            required>
     <span class="help-block">
-      Contact at your organization for any badge-related issues. It's
-      probably best to make this email something that won't change, so
-      don't make it a specific person and use a forwarding email address
-      instead.
+      Website of the organization.
     </span>
   </div>
 
@@ -64,10 +61,10 @@
 
 <!--
   <div>
-    <label for="issuer-secret">Token Secret</label>
+    <label for="secret">Token Secret</label>
     <input type="text"
+           id="secret"
            name="secret"
-           id="issuer-secret"
            value="{{issuer.jwtSecret | undef}}"
            placeholder="shhh secret">
     <span class="help-block">
