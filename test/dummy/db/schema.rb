@@ -11,7 +11,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130226075910) do
+ActiveRecord::Schema.define(:version => 20130226081409) do
+
+  create_table "open_badges_alignments", :force => true do |t|
+    t.string   "url"
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "open_badges_badge_alignments", :force => true do |t|
+    t.integer  "badge_id"
+    t.string   "alignment_id"
+    t.string   "integer"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
 
   create_table "open_badges_badge_tags", :force => true do |t|
     t.integer  "badge_id"

@@ -1,4 +1,10 @@
 OpenBadges::Engine.routes.draw do
+  resources :badge_alignments
+
+
+  resources :alignments
+
+
   resources :badge_tags
 
 
