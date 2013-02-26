@@ -11,13 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130225133701) do
+ActiveRecord::Schema.define(:version => 20130226075910) do
+
+  create_table "open_badges_badge_tags", :force => true do |t|
+    t.integer  "badge_id"
+    t.integer  "tag_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "open_badges_badges", :force => true do |t|
     t.string   "name"
     t.string   "image"
     t.string   "criteria"
-    t.string   "description"
+    t.text     "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
@@ -30,6 +37,12 @@ ActiveRecord::Schema.define(:version => 20130225133701) do
     t.string   "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "open_badges_tags", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end
