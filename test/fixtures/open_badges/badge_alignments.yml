@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  badge_id: 1
+  alignment_id: MyString
+  integer: MyString
+
+two:
+  badge_id: 1
+  alignment_id: MyString
+  integer: MyString

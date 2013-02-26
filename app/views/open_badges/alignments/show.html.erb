@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Url:</b>
+  <%= @alignment.url %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @alignment.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @alignment.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_alignment_path(@alignment) %> |
+<%= link_to 'Back', alignments_path %>
