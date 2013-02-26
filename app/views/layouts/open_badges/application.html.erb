@@ -77,6 +77,14 @@
           </div>
         {% endif %}
       {% endif %}-->
+
+      <% flash.each do |key, value| %>
+        <div class="<%= bootstrap_flash(key) %>">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <strong><%= value %></strong>
+        </div>
+      <% end %>
+
       <%= yield %>
     </div> 
 

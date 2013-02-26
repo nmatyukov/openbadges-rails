@@ -27,10 +27,9 @@ module OpenBadges
 
       respond_to do |format|
         if @organization.update_attributes(params[:organization])
-          format.html { redirect_to :back, notice: 'Organization was successfully updated.' }
+          format.html { redirect_to :back, :flash => { :success => 'Organization was successfully updated.' } }
         else
-          format.html { render action: "edit" }
-          format.json { render json: @organization.errors, status: :unprocessable_entity }
+          format.html { redirect_to :back, :flash => { :error => 'Organization was not successfully updated.' } }
         end
       end
     end
