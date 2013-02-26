@@ -4,7 +4,7 @@ class CreateOpenBadgesBadges < ActiveRecord::Migration
       t.string :name
       t.string :image
       t.string :criteria
-      t.string :description
+      t.text :description
 
       t.timestamps
     end
