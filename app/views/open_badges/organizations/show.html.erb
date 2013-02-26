@@ -1,0 +1,109 @@
+<form method="post">
+  <legend>Issuer Details</legend>
+  <div>
+    <label for="name">Name</label>
+    <input type="text"
+           id="name"
+           name="name"
+           placeholder="Widgets, Inc."
+           maxlength="128"
+           value="<%= @organization.name %>"
+           required>
+    <span class="help-block">
+      Name of the issuer. This should be the top-level name of your
+      institution, e.g. "Mozilla"
+    </span>
+  </div>
+
+  <div>
+    <label for="image">Image (optional)</label>
+    <input type="url"
+           id="image"
+           name="image"
+           value="<%= @organization.image %>"
+           placeholder="Image">
+    <span class="help-block">
+      Contact at your organization for any badge-related issues. It's
+      probably best to make this email something that won't change, so
+      don't make it a specific person and use a forwarding email address
+      instead.
+    </span>
+  </div>
+
+  <div>
+    <label for="url">Website</label>
+    <input type="url"
+           id="url"
+           name="url"
+           value="<%= @organization.url %>"
+           placeholder="http://www.badges.org">
+    <span class="help-block">
+      Contact at your organization for any badge-related issues. It's
+      probably best to make this email something that won't change, so
+      don't make it a specific person and use a forwarding email address
+      instead.
+    </span>
+  </div>
+
+  <div>
+    <label for="email">Email (optional)</label>
+    <input type="text"
+           id="email"
+           name="email"
+           value="<%= @organization.email %>"
+           placeholder="badges@example.org"
+           pattern="[a-z0-9!#$%&'*+\/=?\^_`{|}~\-]+(?:\.[a-z0-9!#$%&'*+\/=?\^_`{|}~\-]+)*@(?:[a-z0-9](?:[a-z0-9\-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9\-]*[a-z0-9])?">
+    <span class="help-block">
+      Contact at your organization for any badge-related issues. It's
+      probably best to make this email something that won't change, so
+      don't make it a specific person and use a forwarding email address
+      instead.
+    </span>
+  </div>
+
+<!--
+  <div>
+    <label for="issuer-secret">Token Secret</label>
+    <input type="text"
+           name="secret"
+           id="issuer-secret"
+           value="{{issuer.jwtSecret | undef}}"
+           placeholder="shhh secret">
+    <span class="help-block">
+      The secret used to sign tokens. Leave this blank to auto-generate
+      a 64 character random secret.
+    </span>
+  </div>
+-->
+<!--
+  <div>
+    <label for="description">Description (optional)</label>
+    <input type="text"
+           id="description"
+           name="description"
+           maxlength="128"
+           value="<%= @organization.description %>"
+           placeholder="Description">
+    <span class="help-block">
+      Organization for your issuer. This should be the organization
+      or group with your institution, e.g. "Webmaker"
+    </span>
+ </div>
+-->
+ <div>
+    <label for="description">Description (optional)</label>
+    <textarea
+           id="description"
+           name="description"
+           maxlength="256"
+           placeholder="Description"><%= @organization.description %></textarea>
+    <span class="help-block">
+      Organization for your issuer. This should be the organization
+      or group with your institution, e.g. "Webmaker"
+    </span>
+ </div>
+
+  <div class="form-actions">
+    <button id="save-issuer" type="submit" class="btn btn-primary">Save Configuration</button>
+  </div>
+</form>
