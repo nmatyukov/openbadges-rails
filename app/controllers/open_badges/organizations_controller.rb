@@ -25,10 +25,8 @@ module OpenBadges
         @organization = Organization.create
       end
 
-  logger.debug(params[:organization])
       respond_to do |format|
-        #if @organization.update_attributes(params[:organization])
-        if @organization.update_attributes(params.except(:csrf, :action, :controller))
+        if @organization.update_attributes(params[:organization])
           format.html { redirect_to :back, notice: 'Organization was successfully updated.' }
           format.json { head :no_content }
         else
