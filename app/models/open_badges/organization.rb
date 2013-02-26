@@ -16,5 +16,13 @@ module OpenBadges
       end
     end
 
+
+    public
+    def as_json(options = nil)
+      super(
+      	:only => [:url, :name, :image, :email, :description]
+      ).reject{ |key, value| value.empty? }
+    end
+
   end
 end
