@@ -1,13 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  name: MyString
-  image: MyString
-  criteria: MyString
-  description: MyString
+android:
+  id: 1
+  name: Android
+  image: android.jpg
+  description: A Linux-based operating system designed primarily for 
+    touchscreen mobile devices such as smartphones and tablet computers
 
-two:
-  name: MyString
-  image: MyString
-  criteria: MyString
-  description: MyString
+ios:
+  id: 2
+  name: iOS
+  image: apple.png
+  description: iOS is a mobile operating system developed and distributed by
+    Apple Inc.

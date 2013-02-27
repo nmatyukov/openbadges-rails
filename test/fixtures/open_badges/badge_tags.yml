@@ -1,9 +1,21 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
+android_java:
   badge_id: 1
   tag_id: 1
 
-two:
+android_mobile:
   badge_id: 1
-  tag_id: 1
+  tag_id: 3
+
+android_open_source:
+  badge_id: 1
+  tag_id: 4
+
+ios_objective_c:
+  badge_id: 2
+  tag_id: 2
+
+ios_mobile:
+  badge_id: 2
+  tag_id: 3

@@ -1,7 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  name: MyString
+java:
+  id: 1
+  name: java
 
-two:
-  name: MyString
+objective_c:
+  id: 2
+  name: objective c
+
+mobile:
+  id: 3
+  name: mobile
+
+open_source:
+  id: 4
+  name: open source

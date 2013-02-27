@@ -1,3 +1,11 @@
 = OpenBadges
 
 This project rocks and uses MIT-LICENSE.
+
+== Testings
+
+=== All tests
+  openbadges-rails> rake test
+
+=== Unit tests
+  openbadges-rails> rake app:test:units
