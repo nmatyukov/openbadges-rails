@@ -2,10 +2,10 @@
 
 This project rocks and uses MIT-LICENSE.
 
+== Load seed data into db
+  openbadges-rails> rake db:seed
+
 == Testings
 
-=== All tests
-  openbadges-rails> rake test
-
-=== Unit tests
-  openbadges-rails> rake app:test:units
+  openbadges-rails> rake test              // Run all tests
+  openbadges-rails> rake app:test:units    // Run unit tests only

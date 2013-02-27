@@ -21,7 +21,7 @@ module OpenBadges
     end
 
     test "tag must not be destroyed if associated with a badge" do
-      assert @java_tag.destroy
+      assert !@java_tag.destroy
     end
   end
 end
