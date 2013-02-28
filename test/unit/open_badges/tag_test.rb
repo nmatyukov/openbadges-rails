@@ -2,7 +2,6 @@ require 'test_helper'
 
 module OpenBadges
   class TagTest < ActiveSupport::TestCase
-
     setup do
       @java_tag = open_badges_tags(:java)
     end

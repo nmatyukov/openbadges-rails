@@ -23,8 +23,7 @@ ActiveRecord::Schema.define(:version => 20130226081329) do
 
   create_table "open_badges_badge_alignments", :force => true do |t|
     t.integer  "badge_id"
-    t.string   "alignment_id"
-    t.string   "integer"
+    t.integer  "alignment_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end

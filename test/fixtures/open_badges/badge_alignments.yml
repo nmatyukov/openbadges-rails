@@ -1,11 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
+android_engin:
   badge_id: 1
-  alignment_id: MyString
-  integer: MyString
+  alignment_id: 1
 
-two:
-  badge_id: 1
-  alignment_id: MyString
-  integer: MyString
+ios_engin:
+  badge_id: 2
+  alignment_id: 1
+
+ios_mobile:
+  badge_id: 2
+  alignment_id: 2

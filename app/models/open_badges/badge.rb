@@ -1,6 +1,7 @@
 module OpenBadges
   class Badge < ActiveRecord::Base
     has_many :badge_tags, dependent: :destroy
+    has_many :badge_alignments, dependent: :destroy
 
     attr_accessible :criteria, :description, :image, :name
     

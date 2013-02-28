@@ -46,5 +46,11 @@ module OpenBadges
         @ios_badge.destroy
       end
     end
+
+    test "destroys all associated badge_alignment when badge is destroyed" do
+      assert_difference 'BadgeAlignment.count', -2 do
+        @ios_badge.destroy
+      end
+    end
   end
 end

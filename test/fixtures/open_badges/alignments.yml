@@ -1,11 +1,20 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  url: MyString
-  name: MyString
-  description: MyText
+engin:
+  id: 1
+  url: httl://www.someschool.edu/software_engineering
+  name: Software Engineering
+  description: Software engineering skills
 
-two:
-  url: MyString
-  name: MyString
-  description: MyText
+mobile:
+  id: 2
+  url: httl://www.anotherschool.edu/mobile
+  name: Mobile development
+  description: Understanding mobile development
+
+mvc:
+  id: 3
+  url: httl://www.yetanotherschool.edu/mvc
+  name: Model View Controller
+  description: Understanding MVC concepts
+
