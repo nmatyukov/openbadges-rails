@@ -1,11 +1,11 @@
-= OpenBadges-Rails
+# OpenBadges-Rails
 
 Ruby on Rails Open Badges Issuer
 
-== Load seed data into db
-  openbadges-rails> rake db:seed
+## Load seed data into db
+    openbadges-rails> rake db:seed
 
-== Testings
+## Testings
 
-  openbadges-rails> rake test              // Run all tests
-  openbadges-rails> rake app:test:units    // Run unit tests only
+    openbadges-rails> rake test              // Run all tests
+    openbadges-rails> rake app:test:units    // Run unit tests only
