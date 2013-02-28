@@ -18,7 +18,7 @@ module OpenBadges
     end
   
     # POST /organization
-    def update2
+    def create
       @organization = Organization.first
 
       if @organization.nil?
