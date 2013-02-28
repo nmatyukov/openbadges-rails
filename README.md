@@ -1,6 +1,6 @@
-= OpenBadges
+= OpenBadges-Rails
 
-This project rocks and uses MIT-LICENSE.
+Ruby on Rails Open Badges Issuer
 
 == Load seed data into db
   openbadges-rails> rake db:seed
