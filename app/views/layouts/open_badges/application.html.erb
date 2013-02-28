@@ -52,9 +52,9 @@
                   <form method="post" action="/logout" class="logout-form js-logout-form"></form>
                 </li>
               {% endif %}-->
-              <li class="active"><a href="/">Home</a></li>
-              <li><a href="./organization">Configure</a></li>
-              <li><a href="./badges">Create a Badge</a></li>
+              <li class="active"><a href=<%= badges_path %>>Home</a></li>
+              <li><a href=<%= organization_path %>>Configure</a></li>
+              <li><a href=<%= badges_path %>>Create a Badge</a></li>
 
               <li class="">
                 <a href="" class="js-logout-link">Logout</a>

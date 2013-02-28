@@ -2,3 +2,48 @@
   Place all the styles related to the matching controller here.
   They will automatically be included in application.css.
 */
+
+.badge-image {
+  height: 80px;
+  width: 80px;
+}
+
+.badge-image-column {
+  width: 80px;
+}
+
+.badge-details {
+  display:block;
+  float:left;
+}
+
+.badge-name {
+  margin: 4px 0px;
+}
+
+ul.tag_list {
+  display:block;
+  margin:0;
+  padding:0; 
+}
+
+ul.tag_list li {
+  margin:0 3px 3px 0;
+  display:inline;
+  background-color: #dfeaf4;
+  color: #19558d;
+  font-size: 90%;
+  padding: 2px;
+}
+
+.badge-description {
+  color: #777;
+}
+
+.badge-options-column {
+  width:80px;
+}
+
+.badge-options-column a {
+  display: block;
+}

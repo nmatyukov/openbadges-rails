@@ -1,29 +1,27 @@
 <h1>Listing badges</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Image</th>
-    <th>Criteria</th>
-    <th>Description</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<table class="table table-hover">
 
 <% @badges.each do |badge| %>
   <tr>
-    <td><%= badge.name %></td>
-    <td><%= badge.image %></td>
-    <td><%= badge.criteria %></td>
-    <td><%= badge.description %></td>
-    <td><%= link_to 'Show', badge %></td>
-    <td><%= link_to 'Edit', edit_badge_path(badge) %></td>
-    <td><%= link_to 'Destroy', badge, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td class='badge-image-column'>
+      <%= image_tag(badge.image, class: 'badge-image') %></td>
+    <td>
+      <h4 class="badge-name"><%= badge.name %></h4>
+      <ul class="tag_list">
+        <% badge.badge_tags.each do |badge_tag| %>
+        <li> <%= badge_tag.tag.name %></li>
+        <% end %>
+      </ul>
+      <p class="badge-description"><%= badge.description %><p>
+    </td>
+    <td class= 'badge-options-column'>
+      <%= link_to 'Show', badge %>
+      <%= link_to 'Edit', edit_badge_path(badge) %>
+      <%= link_to 'Destroy', badge, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </td>
   </tr>
 <% end %>
 </table>
 
-<br />
-
-<%= link_to 'New Badge', new_badge_path %>
+<%= button_to "Create Badge", new_badge_path, :method => "get", class: 'btn btn-primary' %>
