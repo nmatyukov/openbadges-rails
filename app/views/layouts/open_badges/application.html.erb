@@ -20,7 +20,6 @@
 
     <!--<link href="/stylesheets/admin.css" rel="stylesheet">-->
 
-    <!--{% block header %}{% endblock %}-->
   </head>
   <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -35,27 +34,21 @@
             <!--ClopenBadger{% if issuer %}: {{ issuer.name }} {{ issuer.org }} {% endif %}-->OpenBadges</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <!--<li {{ page | activize('home') }}><a href="/">Home</a></li>
-              {% if user %}
-                <li {{ page | activize('configure') }}>
-                  <a href="/admin/config">Configure</a>
-                </li>
-                <li {{ page | activize('new-badge') }}>
-                  <a href="/admin/badge">Create a Badge</a>
-                </li>
-                <li {{ page | activize('new-behavior') }}>
-                  <a href="/admin/behavior">Create a Behavior</a>
-                </li>
+              <li>
+                <a href="/">Home</a>
+              </li>
+              <li class=<%= 'active' if current_page?(organization_path) %>>
+                <a href=<%= organization_path %>>Configure</a>
+              </li>
+              <li class=<%= 'active' if current_page?(badges_path) %>>
+                <a href=<%= badges_path %>>Badges</a>
+              </li>
+              <li class=<%= 'active' if current_page?(alignments_path) %>>
+                <a href=<%= alignments_path %>>Alignments</a>
+              </li>
+            </ul>
 
-                <li class="">
-                  <a href="" class="js-logout-link">Logout</a>
-                  <form method="post" action="/logout" class="logout-form js-logout-form"></form>
-                </li>
-              {% endif %}-->
-              <li class="active"><a href=<%= badges_path %>>Home</a></li>
-              <li><a href=<%= organization_path %>>Configure</a></li>
-              <li><a href=<%= badges_path %>>Badges</a></li>
-
+            <ul class="nav pull-right">
               <li class="">
                 <a href="" class="js-logout-link">Logout</a>
                 <!--<form method="post" action="/logout" class="logout-form js-logout-form"></form>-->
@@ -86,8 +79,6 @@
       <% end %>
 
       <%= yield %>
-    </div> 
-
-    <!--{% block footer %}{% endblock %}-->
+    </div>
   </body>
 </html>

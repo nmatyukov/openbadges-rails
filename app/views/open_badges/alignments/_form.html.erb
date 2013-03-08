@@ -1,29 +1,35 @@
 <%= form_for(@alignment) do |f| %>
-  <% if @alignment.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@alignment.errors.count, "error") %> prohibited this alignment from being saved:</h2>
 
-      <ul>
-      <% @alignment.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
+  <% if defined?(title) && title.is_a?(String) && !title.empty? %>
+    <legend><%= title %></legend>
   <% end %>
 
+  <div>
+    <%= f.label :name, "Name" %>
+    <%= f.text_field :name, :class => "input-xlarge", :required => "" %>
+    <span class="help-block">
+      Name of the alignment.
+    </span>
+  </div>
+
   <div class="field">
-    <%= f.label :url %><br />
-    <%= f.text_field :url %>
+    <%= f.label :url, "Website" %>
+    <%= f.url_field :url, :class => "input-xlarge", :required => "" %>
+    <span class="help-block">
+      URL linking to the official description of the standard.
+    </span>
   </div>
+
   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= f.label :description, "Description (optional)" %>
+    <%= f.text_area :description, :rows => 3, :class => "input-xxlarge" %>
+    <span class="help-block">
+      Short description of the standard.
+    </span>
   </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
+
+  <div class="form-actions">
+    <%= f.submit :class => "btn btn-primary" %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
 <% end %>

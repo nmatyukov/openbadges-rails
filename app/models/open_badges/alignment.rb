@@ -9,6 +9,8 @@ module OpenBadges
     validates :name, uniqueness: true
     validates :name, :url, presence: true
 
+    after_initialize :assign_defaults
+
     def ensure_not_referenced_by_any_badge_alignment
       if badge_alignments.empty?
         return true
@@ -17,6 +19,22 @@ module OpenBadges
         logger.debug('Alignment is associated with at least 1 badge')
         return false
       end
+    end
+
+    private
+    def assign_defaults
+      if new_record?
+        self.url ||= ""
+        self.name ||= ""
+        self.description ||= ""
+      end
+    end
+
+    public
+    def as_json(options = nil)
+      super(
+        :only => [:url, :name, :description]
+      ).reject{ |key, value| value.nil? || value.empty? }
     end
   end
 end

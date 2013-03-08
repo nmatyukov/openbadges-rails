@@ -19,7 +19,7 @@ module OpenBadges
       @alignment = Alignment.find(params[:id])
   
       respond_to do |format|
-        format.html # show.html.erb
+  #      format.html # show.html.erb
         format.json { render json: @alignment }
       end
     end
@@ -31,7 +31,6 @@ module OpenBadges
   
       respond_to do |format|
         format.html # new.html.erb
-        format.json { render json: @alignment }
       end
     end
   
@@ -47,11 +46,9 @@ module OpenBadges
   
       respond_to do |format|
         if @alignment.save
-          format.html { redirect_to @alignment, notice: 'Alignment was successfully created.' }
-          format.json { render json: @alignment, status: :created, location: @alignment }
+          format.html { redirect_to @alignment, :flash => { :success => 'Alignment was successfully created.' } }
         else
-          format.html { render action: "new" }
-          format.json { render json: @alignment.errors, status: :unprocessable_entity }
+          format.html { redirect_to :back, :flash => { :error => @alignment.errors.full_messages.first } }
         end
       end
     end

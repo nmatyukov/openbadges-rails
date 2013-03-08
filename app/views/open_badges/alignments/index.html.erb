@@ -1,27 +1,20 @@
 <h1>Listing alignments</h1>
 
-<table>
-  <tr>
-    <th>Url</th>
-    <th>Name</th>
-    <th>Description</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<table class="table table-hover">
 
 <% @alignments.each do |alignment| %>
   <tr>
-    <td><%= alignment.url %></td>
-    <td><%= alignment.name %></td>
-    <td><%= alignment.description %></td>
-    <td><%= link_to 'Show', alignment %></td>
-    <td><%= link_to 'Edit', edit_alignment_path(alignment) %></td>
-    <td><%= link_to 'Destroy', alignment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td>
+      <h4 class="badge-name"><%= alignment.name %></h4>
+      <p class="badge-description"><%= alignment.url %><p>
+      <p class="badge-description"><%= alignment.description %><p>
+    </td>
+    <td class= 'badge-options-column'>
+      <%= link_to 'Edit', edit_alignment_path(alignment) %>
+      <%= link_to 'Destroy', alignment, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </td>
   </tr>
 <% end %>
 </table>
 
-<br />
-
-<%= link_to 'New Alignment', new_alignment_path %>
+<%= button_to 'Create Alignment', new_alignment_path, :method => "get", class: 'btn btn-primary' %>

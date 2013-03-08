@@ -1,33 +1,47 @@
 <%= form_for(@badge) do |f| %>
-  <% if @badge.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@badge.errors.count, "error") %> prohibited this badge from being saved:</h2>
 
-      <ul>
-      <% @badge.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
+  <% if defined?(title) && title.is_a?(String) && !title.empty? %>
+    <legend><%= title %></legend>
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= f.label :name %>
+    <%= f.text_field :name, :class => "input-xlarge", :required => "" %>
+    <span class="help-block">
+      The name of the achievement.
+    </span>
   </div>
+
   <div class="field">
-    <%= f.label :image %><br />
-    <%= f.text_field :image %>
+    <%= f.label :image %>
+    <%= f.url_field :image, :class => "input-xlarge", :required => "" %>
+    <span class="help-block">
+      URL or <a href="http://en.wikipedia.org/wiki/Data_URI_scheme">Data URL</a> of an image representing the achievement.
+    </span>
   </div>
+
   <div class="field">
-    <%= f.label :criteria %><br />
-    <%= f.text_field :criteria %>
+    <%= f.label :criteria %>
+    <%= f.url_field :criteria, :class => "input-xlarge", :required => "" %>
+    <span class="help-block">
+      URL of the criteria for earning the achievement. If the badge represents an educational achievement, consider marking up this up with <a href="http://www.lrmi.net">LRMI</a>
+    </span>
   </div>
+
   <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_field :description %>
+    <%= f.label :description %>
+    <%= f.text_area :description, :rows => 3, :class => "input-xxlarge", :required => "" %>
+    <span class="help-block">
+      A short description of the achievement.
+    </span>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+
+  <!-- Tags -->
+
+  <!-- Alignments -->
+
+  <div class="form-actions">
+    <%= f.submit :class => "btn btn-primary" %>
   </div>
+
 <% end %>
