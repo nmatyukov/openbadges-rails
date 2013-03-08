@@ -9,7 +9,6 @@ module OpenBadges
   
       respond_to do |format|
         format.html # index.html.erb
-        format.json { render json: @badges }
       end
     end
   
@@ -19,7 +18,6 @@ module OpenBadges
       @badge = Badge.find(params[:id])
   
       respond_to do |format|
-        #format.html # show.html.erb
         format.json { render json: @badge }
       end
     end
@@ -31,7 +29,6 @@ module OpenBadges
   
       respond_to do |format|
         format.html # new.html.erb
-        format.json { render json: @badge }
       end
     end
   
@@ -47,11 +44,9 @@ module OpenBadges
   
       respond_to do |format|
         if @badge.save
-          format.html { redirect_to @badge, notice: 'Badge was successfully created.' }
-          format.json { render json: @badge, status: :created, location: @badge }
+          format.html { redirect_to badges_url, :flash => { :success => 'Badge was successfully created.' } }
         else
           format.html { render action: "new" }
-          format.json { render json: @badge.errors, status: :unprocessable_entity }
         end
       end
     end
@@ -63,11 +58,9 @@ module OpenBadges
   
       respond_to do |format|
         if @badge.update_attributes(params[:badge])
-          format.html { redirect_to @badge, notice: 'Badge was successfully updated.' }
-          format.json { head :no_content }
+          format.html { redirect_to badges_url, :flash => { :success => 'Badge was successfully updated.' } }
         else
           format.html { render action: "edit" }
-          format.json { render json: @badge.errors, status: :unprocessable_entity }
         end
       end
     end
@@ -79,8 +72,7 @@ module OpenBadges
       @badge.destroy
   
       respond_to do |format|
-        format.html { redirect_to badges_url }
-        format.json { head :no_content }
+        format.html { redirect_to badges_url, :flash => { :success => 'Badge was successfully deleted.' } }
       end
     end
   end

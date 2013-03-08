@@ -9,7 +9,6 @@ module OpenBadges
   
       respond_to do |format|
         format.html # index.html.erb
-        format.json { render json: @alignments }
       end
     end
   
@@ -19,7 +18,6 @@ module OpenBadges
       @alignment = Alignment.find(params[:id])
   
       respond_to do |format|
-  #      format.html # show.html.erb
         format.json { render json: @alignment }
       end
     end
@@ -61,10 +59,8 @@ module OpenBadges
       respond_to do |format|
         if @alignment.update_attributes(params[:alignment])
           format.html { redirect_to @alignment, notice: 'Alignment was successfully updated.' }
-          format.json { head :no_content }
         else
           format.html { render action: "edit" }
-          format.json { render json: @alignment.errors, status: :unprocessable_entity }
         end
       end
     end
@@ -77,7 +73,6 @@ module OpenBadges
   
       respond_to do |format|
         format.html { redirect_to alignments_url }
-        format.json { head :no_content }
       end
     end
   end
