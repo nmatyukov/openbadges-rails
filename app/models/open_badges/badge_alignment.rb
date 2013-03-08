@@ -7,5 +7,10 @@ module OpenBadges
 
     validates :alignment_id, :badge_id, presence: true
     validates :badge, :alignment, :presence => { message: "does not exists" }
+
+    public
+    def as_json(options = nil)
+      self.alignment.as_json
+    end
   end
 end

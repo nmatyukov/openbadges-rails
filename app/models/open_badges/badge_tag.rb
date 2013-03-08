@@ -7,5 +7,10 @@ module OpenBadges
 
     validates :badge_id, :tag_id, presence: true
     validates :badge, :tag, :presence => { message: "does not exists" }
+
+    public
+    def as_json(options = nil)
+      self.tag.as_json
+    end
   end
 end

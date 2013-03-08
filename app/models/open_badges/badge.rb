@@ -11,5 +11,16 @@ module OpenBadges
       with: %r{\.(gif|jpe?g|png)$}i,
       message: 'must be a ULR for GIF, JPG, JPEG or PNG images'
     }
+
+    public
+    def as_json(options = nil)
+      json = super(
+        :methods => [:badge_tags, :badge_alignments],
+        :only => [:name, :image, :criteria, :badge_tags, :badge_alignments, :description]
+      ).reject{ |key, value| value.nil? || value.empty? }
+      json['tags'] = json.delete(:badge_tags) unless json[:badge_tags].nil?
+      json['alignment'] = json.delete(:badge_alignments) unless json[:badge_alignments].nil?
+      json
+    end
   end
 end

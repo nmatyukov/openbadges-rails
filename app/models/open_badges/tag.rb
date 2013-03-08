@@ -18,5 +18,10 @@ module OpenBadges
         return false
       end
     end
+
+    public
+    def as_json(options = nil)
+      self.name
+    end
   end
 end
