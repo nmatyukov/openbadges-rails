@@ -5,25 +5,17 @@ module OpenBadges
 
     # GET /organization
     def show
-      @organization = Organization.first
-
-      if @organization.nil?
-        @organization = Organization.create
-      end
+      @organization = Organization.first || Organization.new
 
       respond_to do |format|
         format.html # show.html.erb
         format.json { render json: @organization }
       end
     end
-  
+
     # POST /organization
     def create
-      @organization = Organization.first
-
-      if @organization.nil?
-        @organization = Organization.create
-      end
+      @organization = Organization.first || Organization.create
 
       respond_to do |format|
         if @organization.update_attributes(params[:organization])
