@@ -2,6 +2,9 @@ require_dependency "open_badges/application_controller"
 
 module OpenBadges
   class AlignmentsController < ApplicationController
+
+    #before_filter :authenticate_user!
+
     # GET /alignments
     # GET /alignments.json
     def index

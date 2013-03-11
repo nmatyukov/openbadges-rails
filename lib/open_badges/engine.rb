@@ -1,3 +1,4 @@
+require 'devise'
 require 'bootstrap-sass'
 
 module OpenBadges

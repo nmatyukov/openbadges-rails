@@ -20,7 +20,7 @@ module OpenBadges
       ).reject{ |key, value| value.nil? || value.empty? }
       json['tags'] = json.delete(:badge_tags) unless json[:badge_tags].nil?
       json['alignment'] = json.delete(:badge_alignments) unless json[:badge_alignments].nil?
-      json['issuer'] = OpenBadges::Engine.routes.url_helpers.organization_url(:json, :host => Rails.application.routes.default_url_options[:host] )
+      json['issuer'] = OpenBadges::Engine.routes.url_helpers.organization_url(:json, :host => Rails.application.routes.default_url_options[:host])
       json
     end
   end

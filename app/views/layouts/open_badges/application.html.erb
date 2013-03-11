@@ -16,10 +16,8 @@
         padding-top: 50px;
       }
     </style>
-
-    <!--<link href="/stylesheets/admin.css" rel="stylesheet">-->
-
   </head>
+
   <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
@@ -34,14 +32,19 @@
 
           <div class="nav-collapse collapse">
             <ul class="nav">
+              <!--
               <li>
                 <%= link_to 'Home', '/' %>
               </li>
+              -->
               <li class=<%= 'active' if current_page?(organization_path) %>>
                 <%= link_to 'Configure', organization_path %>
               </li>
               <li class=<%= 'active' if current_page?(badges_path) %>>
                 <%= link_to 'Badges', badges_path %>
+              </li>
+              <li class=<%= 'active' if current_page?(tags_path) %>>
+                <%= link_to 'Tags', tags_path %>
               </li>
               <li class=<%= 'active' if current_page?(alignments_path) %>>
                 <%= link_to 'Alignments', alignments_path %>
@@ -49,9 +52,12 @@
             </ul>
 
             <ul class="nav pull-right">
-              <li class="">
-                <a href="" class="js-logout-link">Logout</a>
-                <!--<form method="post" action="/logout" class="logout-form js-logout-form"></form>-->
+              <li>
+                <% if !user_signed_in? %>
+                  <%= link_to 'Login', new_user_session_path %>
+                <% else %>
+                  <%= link_to 'Logout', destroy_user_session_path, :method => :delete %>
+                <% end %>
               </li>
             </ul>
           </div><!--/.nav-collapse -->

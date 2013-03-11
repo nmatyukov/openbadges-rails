@@ -3,6 +3,8 @@ require_dependency "open_badges/application_controller"
 module OpenBadges
   class OrganizationsController < ApplicationController
 
+    #before_filter :authenticate_user!
+
     # GET /organization
     def show
       @organization = Organization.first || Organization.new

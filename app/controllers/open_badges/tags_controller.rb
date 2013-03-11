@@ -2,6 +2,9 @@ require_dependency "open_badges/application_controller"
 
 module OpenBadges
   class TagsController < ApplicationController
+
+    before_filter :authenticate_user!
+
     # GET /tags
     # GET /tags.json
     def index
