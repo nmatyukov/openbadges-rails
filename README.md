@@ -12,7 +12,7 @@ Ruby on Rails Open Badges Issuer
 
 
 ## Add an administrator for Open Badges admin interface
-	openbadges-rails> rake app:add_admin[<email>, <password>]
+    openbadges-rails> rake app:add_admin[<email>,<password>] // Without spaces
 
 
 ## Testings
