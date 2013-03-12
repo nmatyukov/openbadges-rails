@@ -47,3 +47,7 @@ ul.tag_list li {
 .badge-options-column a {
   display: block;
 }
+
+label {
+  font-weight: bold;
+}
