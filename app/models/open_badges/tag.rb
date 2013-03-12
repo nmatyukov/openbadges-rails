@@ -19,6 +19,12 @@ module OpenBadges
       end
     end
 
+    def self.get_tag_list
+      Tag.order("name").map do |tag|
+        tag.name
+      end
+    end
+
     public
     def as_json(options = nil)
       self.name
