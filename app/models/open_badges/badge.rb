@@ -1,10 +1,12 @@
 module OpenBadges
   class Badge < ActiveRecord::Base
     has_many :badge_tags, dependent: :destroy
+    has_many :tags, :through => :badge_tags
     has_many :badge_alignments, dependent: :destroy
+    has_many :alignments, :through => :badge_alignments
 
-    attr_accessible :criteria, :description, :image, :name
-    
+    attr_accessible :criteria, :description, :image, :name, :tag_ids, :alignment_ids
+
     validates :name, :image, presence: true
     validates :name, uniqueness: true
     validates :image, allow_blank: true, format: {

@@ -3,7 +3,7 @@ require_dependency "open_badges/application_controller"
 module OpenBadges
   class BadgesController < ApplicationController
 
-    #before_filter :authenticate_user!
+    #before_filter :authenticate_user!, :except => :show
 
     # GET /badges
     # GET /badges.json
@@ -55,10 +55,9 @@ module OpenBadges
     end
   
     # PUT /badges/1
-    # PUT /badges/1.json
     def update
       @badge = Badge.find(params[:id])
-  
+
       respond_to do |format|
         if @badge.update_attributes(params[:badge])
           format.html { redirect_to badges_url, :flash => { :success => 'Badge was successfully updated.' } }

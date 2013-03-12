@@ -6,22 +6,11 @@ module OpenBadges
     #before_filter :authenticate_user!
 
     # GET /alignments
-    # GET /alignments.json
     def index
       @alignments = Alignment.all
   
       respond_to do |format|
         format.html # index.html.erb
-      end
-    end
-  
-    # GET /alignments/1
-    # GET /alignments/1.json
-    def show
-      @alignment = Alignment.find(params[:id])
-  
-      respond_to do |format|
-        format.json { render json: @alignment }
       end
     end
   
@@ -47,7 +36,7 @@ module OpenBadges
   
       respond_to do |format|
         if @alignment.save
-          format.html { redirect_to @alignment, :flash => { :success => 'Alignment was successfully created.' } }
+          format.html { redirect_to alignments_url, :flash => { :success => 'Alignment was successfully created.' } }
         else
           format.html { redirect_to :back, :flash => { :error => @alignment.errors.full_messages.first } }
         end
@@ -61,7 +50,7 @@ module OpenBadges
   
       respond_to do |format|
         if @alignment.update_attributes(params[:alignment])
-          format.html { redirect_to @alignment, notice: 'Alignment was successfully updated.' }
+          format.html { redirect_to alignments_url, notice: 'Alignment was successfully updated.' }
         else
           format.html { render action: "edit" }
         end

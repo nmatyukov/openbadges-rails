@@ -8,23 +8,14 @@ OpenBadges::Engine.routes.draw do
     :controllers => { :sessions => "open_badges/sessions" }
   }
 
-  resources :badge_alignments
-
-
-  resources :alignments
-
-
-  resources :badge_tags
-
-
-  resources :tags
-
-
   resources :organizations, :only => []
   get "organization" => "organizations#show"
   post "organization" => "organizations#create"
 
   resources :badges
 
+  resources :tags
+
+  resources :alignments
 
 end

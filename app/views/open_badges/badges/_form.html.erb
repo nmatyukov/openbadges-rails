@@ -48,12 +48,21 @@
     <%= f.text_field :badge_tags, :class => "input-xxlarge", :style => 'margin: 0; border: none; background: none; outline: 0; -webkit-box-shadow: none;' %>
     </div>
     <span class="help-block">
-      A short description of the achievement.
+      List of tags that describe the type of achievement.
     </span>
   </div>
   -->
 
   <!-- Alignments -->
+  <div class="field">
+    <%= f.label :badge_alignments %>
+    <% selected = @badge.badge_alignments.map(&:alignment_id) %>
+    <% selections = OpenBadges::Alignment.all.map{ |a| [a.name, a.id] } %>
+    <%= f.select :alignment_ids, options_for_select(selections, selected), {}, { :class => "input-xxlarge", :multiple => true } %>
+    <span class="help-block">
+      List of educational standards this badge aligns to, if any.
+    </span>
+  </div>
 
   <div class="form-actions">
     <%= f.submit :class => "btn btn-primary" %>
