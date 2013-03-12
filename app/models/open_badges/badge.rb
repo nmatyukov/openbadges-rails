@@ -1,7 +1,9 @@
 module OpenBadges
   class Badge < ActiveRecord::Base
     has_many :badge_tags, dependent: :destroy
+    has_many :tags, through: :badge_tags
     has_many :badge_alignments, dependent: :destroy
+    has_many :alignments, through: :badge_alignments
 
     attr_accessible :criteria, :description, :image, :name
     
@@ -11,6 +13,37 @@ module OpenBadges
       with: %r{\.(gif|jpe?g|png)$}i,
       message: 'must be a ULR for GIF, JPG, JPEG or PNG images'
     }
+
+    # Tag List
+    attr_writer :tag_list
+    attr_accessible :tag_list
+    before_save :save_tag_list
+
+    def tag_list
+      @tag_list || tags.map(&:name).join(", ")
+    end
+
+    def save_tag_list
+      if @tag_list
+
+        tag_name_array = @tag_list.split(/,/)
+
+        if !tag_name_array.blank?
+          Tag.where("name NOT IN (?)", tag_name_array).map do |name|
+            Tag.create(:name => name.strip)
+          end
+
+          self.tags = Tag.where("name IN (?)", tag_name_array)
+        else
+
+          self.badge_tags.destroy_all
+        end
+
+        # self.tags = @tag_list.split(/,/).uniq.map do |name|
+        #   Tag.where(:name => name).first || Tag.create(:name => name.strip)
+        # end
+      end
+    end
 
     public
     def as_json(options = nil)
