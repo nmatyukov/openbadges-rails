@@ -26,16 +26,21 @@ module OpenBadges
     def save_tag_list
       if @tag_list
 
-        tag_name_array = @tag_list.split(/,/)
+        tag_name_array = @tag_list.split(/,/).uniq
+        full_tag_name_array = Tag.get_tag_list
 
-        if !tag_name_array.blank?
-          Tag.where("name NOT IN (?)", tag_name_array).map do |name|
-            Tag.create(:name => name.strip)
+        if not tag_name_array.blank?
+          tag_name_array.each do |name|
+            name = name.strip
+
+            # If tag name does not exists, create 
+            if not full_tag_name_array.include?(name)
+              Tag.create(name: name)
+            end
           end
 
           self.tags = Tag.where("name IN (?)", tag_name_array)
         else
-
           self.badge_tags.destroy_all
         end
 
