@@ -36,29 +36,15 @@
     </span>
   </div>
 
-  <!-- Tags -->
-  <!--
-  <div class="field">
-    <%= f.label :tag_list, "Tags (optional)" %>
-    <%= f.text_field :tag_list, autocomplete: 'off', class: "input-xxlarge",
-      data: { tags: OpenBadges::Tag.get_tag_list.to_json },
-      style: "border-radius: 4px; -webkit-border-radius: 4px;" %>
-    <span class="help-block">
-      List of tags that describe the type of achievement.
-    </span>
-  </div>
--->
   <div class="field">
     <%= f.label :tag_list, "Tags (optional)" %>
     <%= f.text_field :tag_list, :autocomplete => 'off', :class => "input-xxlarge",
-      :data => { :tags => OpenBadges::Tag.get_tag_list.to_json },
-      :style => "border-radius: 4px; -webkit-border-radius: 4px;" %>
+      :data => { :tags => OpenBadges::Tag.get_tag_list.to_json } %>
     <span class="help-block">
       List of tags that describe the type of achievement.
     </span>
   </div>
 
-  <!-- Alignments -->
   <div class="field">
     <%= f.label :badge_alignments, "Alignments (optional)" %>
     <% selected = @badge.badge_alignments.map(&:alignment_id) %>
