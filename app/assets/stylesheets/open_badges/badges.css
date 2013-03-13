@@ -51,3 +51,13 @@ ul.tag_list li {
 label {
   font-weight: bold;
 }
+
+.select2-container .select2-choices {
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+}
+
+.select2-container .select2-choices li.select2-search-choice {
+  margin: 5px 0px 5px 5px;
+}
