@@ -4,7 +4,12 @@
 $(document).ready(function(){
   $("#badge_tag_list").select2({
     width: "copy",
-    placeholder: "Tags",
+    placeholder: "Tag",
     tags: $("#badge_tag_list").data("tags")
+  });
+
+  $("#badge_alignment_ids").select2({
+    placeholder: "Alignment",
+    width: "copy",
   });
 });
