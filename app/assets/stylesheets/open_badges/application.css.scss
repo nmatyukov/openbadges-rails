@@ -13,3 +13,16 @@
  *= require_tree .
  */
 @import 'bootstrap';
+
+.title-with-pagination {
+  overflow: auto;
+  width: 100%;
+  
+  h1 {
+    float:left;
+  }
+
+  .pagination {
+    float:right;
+  }
+}

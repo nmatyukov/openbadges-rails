@@ -7,6 +7,7 @@ PATH
       rails (~> 3.2.12)
       sass-rails (~> 3.2)
       select2-rails (~> 3.3.1)
+      will_paginate (~> 3.0)
 
 GEM
   remote: http://rubygems.org/
@@ -111,6 +112,7 @@ GEM
     tzinfo (0.3.37)
     warden (1.2.1)
       rack (>= 1.0)
+    will_paginate (3.0.4)
 
 PLATFORMS
   ruby
@@ -120,3 +122,4 @@ DEPENDENCIES
   open_badges!
   select2-rails
   sqlite3
+  will_paginate (~> 3.0)

@@ -8,7 +8,8 @@ module OpenBadges
     # GET /badges
     # GET /badges.json
     def index
-      @badges = Badge.all
+      @badges = Badge.paginate(:page => params[:page],
+        :per_page => RESULTS_PER_PAGE)
   
       respond_to do |format|
         format.html # index.html.erb
