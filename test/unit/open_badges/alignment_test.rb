@@ -21,8 +21,13 @@ module OpenBadges
                    alignment.errors[:name].join('; ')
     end
 
-    test "alignment must not be destroyed if associated with a badge" do
-      assert !@engin_alignment.destroy
+    test "destroys all associated badge_alignment when alignment is destroyed" do
+
+      num_before = BadgeAlignment.where("alignment_id = #{@engin_alignment.id}").count
+      @engin_alignment.destroy
+      num_after = BadgeAlignment.where("alignment_id = #{@engin_alignment.id}").count
+      
+      assert (num_before != num_after && num_after == 0)
     end
   end
 end

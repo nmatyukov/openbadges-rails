@@ -19,8 +19,13 @@ module OpenBadges
                    tag.errors[:name].join('; ')
     end
 
-    test "tag must not be destroyed if associated with a badge" do
-      assert !@java_tag.destroy
+    test "destroys all associated badge_tag when tag is destroyed" do
+
+      num_before = BadgeTag.where("tag_id = #{@java_tag.id}").count
+      @java_tag.destroy
+      num_after = BadgeTag.where("tag_id = #{@java_tag.id}").count
+      
+      assert (num_before != num_after && num_after == 0)
     end
   end
 end
