@@ -1,0 +1,60 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Badge:</b>
+  <%= @assertion.badge_id %>
+</p>
+
+<p>
+  <b>Issued on:</b>
+  <%= @assertion.issued_on %>
+</p>
+
+<p>
+  <b>Image:</b>
+  <%= @assertion.image %>
+</p>
+
+<p>
+  <b>Evidence:</b>
+  <%= @assertion.evidence %>
+</p>
+
+<p>
+  <b>Expires:</b>
+  <%= @assertion.expires %>
+</p>
+
+<p>
+  <b>Identity:</b>
+  <%= @assertion.identity %>
+</p>
+
+<p>
+  <b>Identity type:</b>
+  <%= @assertion.identity_type %>
+</p>
+
+<p>
+  <b>Identity hashed:</b>
+  <%= @assertion.identity_hashed %>
+</p>
+
+<p>
+  <b>Identity salt:</b>
+  <%= @assertion.identity_salt %>
+</p>
+
+<p>
+  <b>Verification type:</b>
+  <%= @assertion.verification_type %>
+</p>
+
+<p>
+  <b>Verification url:</b>
+  <%= @assertion.verification_url %>
+</p>
+
+
+<%= link_to 'Edit', edit_assertion_path(@assertion) %> |
+<%= link_to 'Back', assertions_path %>

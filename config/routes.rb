@@ -1,4 +1,7 @@
 OpenBadges::Engine.routes.draw do
+  resources :assertions
+
+
   root :to => "application#show"
 
   # https://github.com/plataformatec/devise/wiki/How-To:-Use-devise-inside-a-mountable-engine

@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  badge_id: 1
+  issued_on: 2013-03-19 08:26:45
+  image: MyString
+  evidence: MyString
+  expires: 2013-03-19 08:26:45
+  identity: MyText
+  identity_type: MyString
+  identity_hashed: false
+  identity_salt: MyString
+  verification_type: MyString
+  verification_url: MyString
+
+two:
+  badge_id: 1
+  issued_on: 2013-03-19 08:26:45
+  image: MyString
+  evidence: MyString
+  expires: 2013-03-19 08:26:45
+  identity: MyText
+  identity_type: MyString
+  identity_hashed: false
+  identity_salt: MyString
+  verification_type: MyString
+  verification_url: MyString

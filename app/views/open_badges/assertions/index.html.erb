@@ -1,0 +1,43 @@
+<h1>Listing assertions</h1>
+
+<table>
+  <tr>
+    <th>Badge</th>
+    <th>Issued on</th>
+    <th>Image</th>
+    <th>Evidence</th>
+    <th>Expires</th>
+    <th>Identity</th>
+    <th>Identity type</th>
+    <th>Identity hashed</th>
+    <th>Identity salt</th>
+    <th>Verification type</th>
+    <th>Verification url</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @assertions.each do |assertion| %>
+  <tr>
+    <td><%= assertion.badge_id %></td>
+    <td><%= assertion.issued_on %></td>
+    <td><%= assertion.image %></td>
+    <td><%= assertion.evidence %></td>
+    <td><%= assertion.expires %></td>
+    <td><%= assertion.identity %></td>
+    <td><%= assertion.identity_type %></td>
+    <td><%= assertion.identity_hashed %></td>
+    <td><%= assertion.identity_salt %></td>
+    <td><%= assertion.verification_type %></td>
+    <td><%= assertion.verification_url %></td>
+    <td><%= link_to 'Show', assertion %></td>
+    <td><%= link_to 'Edit', edit_assertion_path(assertion) %></td>
+    <td><%= link_to 'Destroy', assertion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Assertion', new_assertion_path %>
