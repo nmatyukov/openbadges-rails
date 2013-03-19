@@ -29,10 +29,10 @@ end
 
 OpenBadges::Tag.create(
   id: 1,
-  name: 'Magic')
+  name: 'magic')
 OpenBadges::Tag.create(
   id: 2,
-  name: 'Elemental')
+  name: 'elemental')
 
 OpenBadges::BadgeTag.create(
   badge_id: 1,
@@ -71,3 +71,7 @@ OpenBadges::BadgeAlignment.create(
   badge_id: 3,
   alignment_id: 3)
 
+OpenBadges::User.create(
+  email: 'admin@openbadges.org',
+  password: 'openbadges'
+)

@@ -61,3 +61,8 @@ label {
 .select2-container .select2-choices li.select2-search-choice {
   margin: 5px 0px 5px 5px;
 }
+/*
+.select2-container-multi .select2-choices .select2-search-field input {
+  background-image: none !important;
+}
+*/

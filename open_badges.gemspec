@@ -7,13 +7,13 @@ require "open_badges/version"
 Gem::Specification.new do |s|
   s.name        = "open_badges"
   s.version     = OpenBadges::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of OpenBadges."
-  s.description = "TODO: Description of OpenBadges."
+  s.authors     = ["Eldwin Liew", "Andrew Eng"]
+  s.email       = ["eldwin_@hotmail.com", "andrew.engwy@gmail.com"]
+  s.homepage    = "https://github.com/eldwin/openbadges-rails"
+  s.summary     = "Ruby on Rails Open Badges Issuer"
+  s.description = "Ruby on Rails Open Badges Issuer"
 
-  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
+  s.files = Dir["{app,config,db,lib}/**/*"] + ["LICENSE.md", "Rakefile", "README.md"]
   s.test_files = Dir["test/**/*"]
 
   s.add_dependency 'rails', '~> 3.2.12'

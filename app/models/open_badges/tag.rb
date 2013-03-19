@@ -8,6 +8,7 @@ module OpenBadges
     
     validates :name, uniqueness: true
     validates :name, presence: true
+    validates_format_of :name, :with => /^[a-z]+$/
 
     def ensure_not_referenced_by_any_badge_tag
       if badge_tags.empty?

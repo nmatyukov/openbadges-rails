@@ -1,15 +1,14 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
 
-$(document).ready(function(){
+$(document).ready( function() {
   $("#badge_tag_list").select2({
     width: "copy",
-    placeholder: "Tag",
+    tokenSeparators: [",", " "],
     tags: $("#badge_tag_list").data("tags")
   });
 
   $("#badge_alignment_ids").select2({
-    placeholder: "Alignment",
-    width: "copy",
+    width: "copy"
   });
 });
