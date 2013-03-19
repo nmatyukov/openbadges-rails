@@ -1,8 +1,7 @@
 module OpenBadges
   class Alignment < ActiveRecord::Base
-    has_many :badge_alignments
-
-    before_destroy :ensure_not_referenced_by_any_badge_alignment
+    has_many :badge_alignments, dependent: :destroy
+    has_many :badge, through: :badge_alignment
 
     attr_accessible :description, :name, :url
     
@@ -10,16 +9,6 @@ module OpenBadges
     validates :name, :url, presence: true
 
     after_initialize :assign_defaults
-
-    def ensure_not_referenced_by_any_badge_alignment
-      if badge_alignments.empty?
-        return true
-      else
-        errors.add(:base, 'Alignment is associated with at least 1 badge')
-        logger.debug('Alignment is associated with at least 1 badge')
-        return false
-      end
-    end
 
     private
     def assign_defaults
