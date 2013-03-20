@@ -1,6 +1,7 @@
+pkg/
 .bundle/
 log/*.log
-pkg/
+Gemfile.lock
 test/dummy/db/*.sqlite3
 test/dummy/log/*.log
 test/dummy/tmp/
