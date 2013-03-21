@@ -16,10 +16,6 @@
     <%= f.number_field :badge_id %>
   </div>
   <div class="field">
-    <%= f.label :issued_on %><br />
-    <%= f.datetime_select :issued_on %>
-  </div>
-  <div class="field">
     <%= f.label :image %><br />
     <%= f.text_field :image %>
   </div>
@@ -30,30 +26,6 @@
   <div class="field">
     <%= f.label :expires %><br />
     <%= f.datetime_select :expires %>
-  </div>
-  <div class="field">
-    <%= f.label :identity %><br />
-    <%= f.text_area :identity %>
-  </div>
-  <div class="field">
-    <%= f.label :identity_type %><br />
-    <%= f.text_field :identity_type %>
-  </div>
-  <div class="field">
-    <%= f.label :identity_hashed %><br />
-    <%= f.check_box :identity_hashed %>
-  </div>
-  <div class="field">
-    <%= f.label :identity_salt %><br />
-    <%= f.text_field :identity_salt %>
-  </div>
-  <div class="field">
-    <%= f.label :verification_type %><br />
-    <%= f.text_field :verification_type %>
-  </div>
-  <div class="field">
-    <%= f.label :verification_url %><br />
-    <%= f.text_field :verification_url %>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -24,7 +24,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'chunky_png', '~> 1.2.7'
   s.add_dependency 'will_paginate', '~> 3.0'
   s.add_dependency 'select2-rails', '~> 3.3.1'
-  s.add_dependency "jquery-rails"
+  s.add_dependency 'jquery-rails'
   s.add_dependency 'sass-rails', '~> 3.2'
   s.add_dependency 'bootstrap-sass', '~> 2.0'
   #s.add_dependency 'bootstrap-sass', '~> 2.3.0.1'

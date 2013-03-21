@@ -1,25 +1,24 @@
 require_dependency "open_badges/application_controller"
 
+require 'digest'
+require 'securerandom'
+
 module OpenBadges
   class AssertionsController < ApplicationController
     # GET /assertions
-    # GET /assertions.json
     def index
       @assertions = Assertion.all
   
       respond_to do |format|
         format.html # index.html.erb
-        format.json { render json: @assertions }
       end
     end
   
-    # GET /assertions/1
     # GET /assertions/1.json
     def show
       @assertion = Assertion.find(params[:id])
   
       respond_to do |format|
-        format.html # show.html.erb
         format.json { render json: @assertion }
       end
     end
@@ -41,46 +40,50 @@ module OpenBadges
     end
   
     # POST /assertions
-    # POST /assertions.json
     def create
       @assertion = Assertion.new(params[:assertion])
+      # IdentityObject
+      #@assertion.identity = Digest::SHA256.hexdigest('#{@user.email}#{@assertion.identity_salt}')
+
+      # bake
+      #assertion.badge.image
+
+      #image = ChunkyPNG::Image.from_blob(open(badge.image).read) # maybe can use from url
+      #image = ChunkyPNG::Image.from_file(assertion.badge.image) # probably local files only
+      #image.metadata['openbadges'] = assertions_url
+      #image.to_blob # no save
+      #image.save('file.png')
   
       respond_to do |format|
         if @assertion.save
-          format.html { redirect_to @assertion, notice: 'Assertion was successfully created.' }
-          format.json { render json: @assertion, status: :created, location: @assertion }
+
+          format.html { redirect_to assertions_url, :flash => { :success => 'Assertion was successfully created.' } }
         else
           format.html { render action: "new" }
-          format.json { render json: @assertion.errors, status: :unprocessable_entity }
         end
       end
     end
   
     # PUT /assertions/1
-    # PUT /assertions/1.json
     def update
       @assertion = Assertion.find(params[:id])
   
       respond_to do |format|
         if @assertion.update_attributes(params[:assertion])
-          format.html { redirect_to @assertion, notice: 'Assertion was successfully updated.' }
-          format.json { head :no_content }
+          format.html { redirect_to assertions_url, :flash => { :success => 'Assertion was successfully updated.' } }
         else
           format.html { render action: "edit" }
-          format.json { render json: @assertion.errors, status: :unprocessable_entity }
         end
       end
     end
   
     # DELETE /assertions/1
-    # DELETE /assertions/1.json
     def destroy
       @assertion = Assertion.find(params[:id])
       @assertion.destroy
   
       respond_to do |format|
         format.html { redirect_to assertions_url }
-        format.json { head :no_content }
       end
     end
   end

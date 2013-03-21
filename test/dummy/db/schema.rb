@@ -23,7 +23,6 @@ ActiveRecord::Schema.define(:version => 20130319002645) do
 
   create_table "open_badges_assertions", :force => true do |t|
     t.integer  "badge_id"
-    t.datetime "issued_on"
     t.string   "image"
     t.string   "evidence"
     t.datetime "expires"
@@ -32,7 +31,6 @@ ActiveRecord::Schema.define(:version => 20130319002645) do
     t.boolean  "identity_hashed"
     t.string   "identity_salt"
     t.string   "verification_type"
-    t.string   "verification_url"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
   end
