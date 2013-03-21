@@ -51,6 +51,15 @@ module OpenBadges
     end
 
     public
+    def url
+      OpenBadges::Engine.routes.url_helpers.badge_url({
+        :id => self.id,
+        :format => :json,
+        :host => Rails.application.routes.default_url_options[:host]
+      })
+    end
+
+    public
     def as_json(options = nil)
       json = super(
         :methods => [:badge_tags, :badge_alignments],
@@ -58,7 +67,10 @@ module OpenBadges
       ).reject{ |key, value| value.nil? || value.empty? }
       json['tags'] = json.delete(:badge_tags) unless json[:badge_tags].nil?
       json['alignment'] = json.delete(:badge_alignments) unless json[:badge_alignments].nil?
-      json['issuer'] = OpenBadges::Engine.routes.url_helpers.organization_url(:json, :host => Rails.application.routes.default_url_options[:host])
+      json['issuer'] = OpenBadges::Engine.routes.url_helpers.organization_url({
+        :format => :json,
+        :host => Rails.application.routes.default_url_options[:host]
+      })
       json
     end
   end

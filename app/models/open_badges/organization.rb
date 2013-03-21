@@ -18,7 +18,6 @@ module OpenBadges
       end
     end
 
-
     public
     def as_json(options = nil)
       super(

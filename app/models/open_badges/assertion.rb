@@ -3,7 +3,7 @@ require 'securerandom'
 
 module OpenBadges
   class Assertion < ActiveRecord::Base
-    delegate :url_helpers, to: 'OpenBadges::Engine.routes'
+    #delegate :url_helpers, to: 'OpenBadges::Engine.routes'
 
     belongs_to :badge
 
@@ -32,10 +32,20 @@ module OpenBadges
     end
 
     public
+    def url
+      OpenBadges::Engine.routes.url_helpers.assertion_url({
+        :id => self.id,
+        :format => :json,
+        :host => Rails.application.routes.default_url_options[:host]
+      })
+    end
+
+    public
     def as_json(options = nil)
       json = super( :only => [] )
       json.merge!({
         :uid => self.id.to_s,
+        :badge => self.badge.url,
         :issuedOn => self.created_at.to_i,
         :recipient => {
           :identity => self.identity,
@@ -44,8 +54,8 @@ module OpenBadges
           :hashed => self.identity_hashed
         },
         :verify => {
-          :type => self.verification_type,
-          :url => url_helpers.assertion_url(:id => self.id, :format => :json, :host => Rails.application.routes.default_url_options[:host])
+          :url => self.url,
+          :type => self.verification_type
         }
       })
       json[:image] = self.image unless self.image.nil? || self.image.empty?
